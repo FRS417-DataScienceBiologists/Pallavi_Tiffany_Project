@@ -17,7 +17,7 @@ library(tidyverse)
 ```
 
 ```{r}
-dementia_data <- readr::read_csv("~/Desktop/FRS_417/pallavimalladi/Dementia_Study/Recorded_Dementia_Diagnoses_by_Race.csv")
+dementia_data <- readr::read_csv("Recorded_Dementia_Diagnoses_by_Race.csv")
 ```
 
 ```{r}
@@ -37,6 +37,14 @@ dementia_data <-
           )
 dementia_data
 ```
+
+```{r}
+dementia_data %>% 
+  separate(Race, into=c("race1", "race2", "race3", "race4", "race5", "race6", "race7", "race8"), sep="_") %>% 
+  select(-race2, -race3)
+```
+
+
 
 ## Explore the data using the method that you prefer. Below, I am using a new package called `skimr`. If you want to use this, make sure that it is installed.
 ```{r}
